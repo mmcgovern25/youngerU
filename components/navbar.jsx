@@ -25,20 +25,20 @@ export default function Navbar({ initialMenuState }) {
                     </button>
                 </div>
 
-                <ul className={`flex-col pt-8 md:flex-row md:flex space-x-16 justify-end w-full pr-4 md:pr-8 lg:pr-16 ${isOpen ? 'flex' : 'hidden'} md:flex`}>
-                    <li>
+                <ul className={`flex-col md:flex-row md:flex space-x-16 justify-end w-full pr-4 md:pr-8 lg:pr-16 ${isOpen ? 'flex' : 'hidden'} md:flex`}>
+                    <li className="flex items-center">
                         <Link href="/coaching">Coaching</Link>
                     </li>
-                    <li>
+                    <li className="flex items-center">
                         <Link href="/about">About</Link>
                     </li>
-                    <li>
-                        <Image src={logo} alt="logo" width={100} height={100} className="align-middle" />
+                    <li className="flex items-center">
+                        <Image src={logo} alt="logo" width={100} height={100} />
                     </li>
-                    <li>
+                    <li className="flex items-center">
                         <Link href="/podcast">Podcast</Link>
                     </li>
-                    <li>
+                    <li className="flex items-center">
                         <Link href="/articles">Articles</Link>
                     </li>
                 </ul>
