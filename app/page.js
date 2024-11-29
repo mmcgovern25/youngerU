@@ -1,12 +1,36 @@
 'use client'
 import Link from "next/link";
+import { motion } from "motion/react";
+
 
 
 export default function Home() {
   return (
     <main>
       <div className="flex flex-col items-center min-h-screen">
-          <h1 className="text-4xl font-bold mb-4">Younger Today, Younger Now, YoungerU</h1>
+      <motion.div
+          initial={{ x: "-40vw", opacity: 0 }}
+          animate={{
+            x: "-33vw",
+            opacity: 1,
+            transition: { duration: 2, ease: "easeOut" },
+            
+  }} className="text-4xl font-bold mb-4">Younger Today</motion.div>
+          <motion.div
+          initial={{ x: "40vw", opacity: 0 }}
+          animate={{
+            x: "33vw",
+            opacity: 1,
+            transition: { duration: 2, ease: "easeOut", delay: 1 },
+            
+  }} className="text-4xl font-bold mb-4">Younger Now</motion.div>
+          <motion.div
+          initial={{ opacity: 0 }}
+          animate={{
+            scale: 2,
+            opacity: 1,
+            transition: { duration: 2, delay: 2 }
+          }} className="text-4xl font-bold mb-4">YoungerU</motion.div>
           <p className="text-xl mb-8">Empowering the next generation of fitness enthusiasts</p>
           <Link href="/contact" className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition duration-300">
             Get Started
