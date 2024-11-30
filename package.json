@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
     "motion": "^11.12.0",
     "next": "^15.0.2",
     "react": "^18.2.0",

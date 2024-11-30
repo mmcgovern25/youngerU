@@ -1,41 +1,55 @@
 'use client'
 import Link from "next/link";
 import { motion } from "motion/react";
-
+import DownIcon from '../components/arrowdown';
 
 
 export default function Home() {
   return (
     <main>
-      <div className="flex flex-col items-center min-h-screen">
+      <div className="flex flex-col items-center justify-center min-h-[80vh] -mt-20">
       <motion.div
-          initial={{ x: "-40vw", opacity: 0 }}
+          initial={{ x: "-10vh", opacity: 0 }}
           animate={{
-            x: "-33vw",
-            opacity: 1,
-            transition: { duration: 2, ease: "easeOut" },
+            x: "0vh",
+            opacity: [1, 1],
+            transition: { duration: 3, ease: "easeOut" },
             
-  }} className="text-4xl font-bold mb-4">Younger Today</motion.div>
+  }} className="text-[#0077BC] mt-20 mb-2 text-7xl font-bold mb-4">Younger Today.</motion.div>
           <motion.div
-          initial={{ x: "40vw", opacity: 0 }}
+          initial={{ x: "10vw", opacity: 0 }}
           animate={{
-            x: "33vw",
-            opacity: 1,
-            transition: { duration: 2, ease: "easeOut", delay: 1 },
+            x: "0vh",
+            opacity: [0, 1],
+            transition: { duration: 3, ease: "easeOut", delay: 1 },
             
-  }} className="text-4xl font-bold mb-4">Younger Now</motion.div>
+  }} className="text-[#65B5AC] text-7xl font-bold mb-4">Younger Now.</motion.div>
           <motion.div
           initial={{ opacity: 0 }}
           animate={{
-            scale: 2,
             opacity: 1,
-            transition: { duration: 2, delay: 2 }
-          }} className="text-4xl font-bold mb-4">YoungerU</motion.div>
-          <p className="text-xl mb-8">Empowering the next generation of fitness enthusiasts</p>
-          <Link href="/contact" className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition duration-300">
-            Get Started
-          </Link>
+            transition: { duration: 3, delay: 3 }
+          }} className="mb-8 text-[150px] font-bold mb-4">
+            <span className="text-[#0077BC]">younger</span>
+            <span className="text-[#65B5AC]">U</span>
+          </motion.div>
+          <p className="text-xl mb-8">Here is a one sentence punchline that I dont know yet.</p>
+          <motion.div
+      className="text-white w-[150px] h-[60px] rounded-[50px] bg-[#0077BC] cursor-pointer flex items-center justify-center"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+        Lets Get Started!
+      </motion.div>
       </div>
+
+      <div className="flex flex-col items-center justify-center">
+        <p className=''>How it works</p>
+        <DownIcon className='mt-4'/>
+      </div>
+      
+
+
 
       <div className="ondebox">
         <svg 
