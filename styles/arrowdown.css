@@ -1,28 +1,15 @@
-.fadeArrow {
-    opacity: 0;
-    animation: fade 3s infinite;
+
+
+  
+  .down-icon {
+    animation: moveDown 0.5s infinite alternate;
   }
   
-  @keyframes fade {
-    0%, 100% {
-      opacity: 0;
+  @keyframes moveDown {
+    0% {
+      transform: translateY(0);
     }
-    33% {
-      opacity: 1;
+    100% {
+      transform: translateY(-10px); /* Adjust the value for more or less movement */
     }
-    66% {
-      opacity: 0;
-    }
-  }
-  
-  #arrow1 {
-    animation-delay: 4s;  /* First arrow fades in first */
-  }
-  
-  #arrow2 {
-    animation-delay: 2s;  /* Second arrow fades in after 1 second */
-  }
-  
-  #arrow3 {
-    animation-delay: 0s;  /* Third arrow fades in after 2 seconds */
   }
