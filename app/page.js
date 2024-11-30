@@ -45,7 +45,7 @@ export default function Home() {
 
       <div className="flex flex-col items-center justify-center">
         <p className=''>How it works</p>
-        <DownIcon className='mt-4'/>
+        <DownIcon className='mt-2'/>
       </div>
       
 
