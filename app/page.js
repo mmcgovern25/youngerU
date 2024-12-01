@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import DownIcon from '../components/arrowdown';
+import HowItWorks from '../components/howitworks'
 
 
 
@@ -45,8 +46,10 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col items-center justify-center">
-        <p className=''>How it works</p>
-        <DownIcon className='mt-2'/>
+        <Link href="#how-it-works" scroll={true}>
+          <p className=''>How it works</p>
+          <DownIcon className='mt-2'/>
+        </Link>
       </div>
       
 
@@ -71,6 +74,8 @@ export default function Home() {
           </g>
         </svg>
       </div>
+
+      <HowItWorks />
     </main>
   );
 }

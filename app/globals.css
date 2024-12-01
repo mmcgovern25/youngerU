@@ -14,6 +14,25 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: normal;
+  scrollbar-color: #0077BC;
+}
+
+html::-webkit-scrollbar {
+  width: 0.75vw;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #65B5AC;
+  border-radius: 100vw;
+}
+
+html::-webkit-scrollbar-track {
+  border-radius: 100vw;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
