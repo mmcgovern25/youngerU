@@ -3,12 +3,12 @@ export const navItems = [
         label: "About",
     },
     {
-        label: "Pricing",
+        label: "Coaching",
     },
     {
-        label: "Blog",
+        label: "Podcast",
     },
     {
-        label: "Contact",
+        label: "Articles",
     },
 ]
