@@ -35,7 +35,7 @@ const NavButton: React.FC<NavMenuToggleProps> = ({menuOpen, setMenuOpen}) => {
 
 
   return (
-    <div onClick={() => setMenuOpen(!menuOpen)} className='relative justify-self-center flex flex-col gap-2 cursor-pointer stroke-black stroke-2 z-50'>
+    <div onClick={() => setMenuOpen(!menuOpen)} className='relative justify-self-center flex flex-col gap-2 cursor-pointer stroke-[#0077BC] stroke-2 z-50'>
       <svg width="24" height="24" viewBox='0 0 24'>
         <motion.path {...path1Varients.closed} animate={path1Controls} transition={{duration: 0.2}}/>
         <motion.path {...path2Varients.closed} animate={path2Controls}  transition={{duration: 0.2}} />
