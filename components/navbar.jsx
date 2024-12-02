@@ -14,9 +14,9 @@ const Navbar = () => {
         <Image src={logo} alt="logo" width={70} height={70} />
       </Link>
       {/* Navigation items */}
-      <ul className="hidden highlightTextOut md:flex md:space-x-16 gap-6 md:pr-8 lg:pr-16 text-[#0077BC] font-bold lg:text-xl">
+      <ul className="hidden md:flex md:space-x-16 gap-6 md:pr-8 lg:pr-16 text-[#0077BC] font-bold lg:text-xl">
         {navItems.map(({ label, path }) => (
-          <li className="highlightTextOut" key={label}>
+          <li className="hover:text-[#65B5AC] hover:scale-105 transition-transform duration-200" key={label}>
             <Link href={path} alt={label}>{label}</Link>
           </li>
         ))}
