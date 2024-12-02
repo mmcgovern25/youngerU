@@ -4,18 +4,21 @@ import { navItems } from "@/utils/NavData";
 import NavMenu from "./NavMenu"
 import Image from "next/image";
 import logo from "@/public/logo.png"
+import "../app/globals.css";
 
 const Navbar = () => {
   return (
     <nav className="flex justify-between items-center p-8">
       {/* Logo */}
-      <Image src={logo} alt="logo" width={70} height={70} />
+      <Link href="/">
+        <Image src={logo} alt="logo" width={70} height={70} />
+      </Link>
       {/* Navigation items */}
-      <ul className="hidden md:flex md:space-x-16 gap-6 md:pr-8 lg:pr-16 text-[#0077BC] font-bold lg:text-xl ">
-        {navItems.map(({ label }) => (
-          <Link href="/" key={label}>
-            <li className="transition-transform duration-200 ease-in-out transform hover:scale-105 hover:text-[#65B5AC]">{label}</li>
-          </Link>
+      <ul className="hidden highlightTextOut md:flex md:space-x-16 gap-6 md:pr-8 lg:pr-16 text-[#0077BC] font-bold lg:text-xl">
+        {navItems.map(({ label, path }) => (
+          <li className="highlightTextOut" key={label}>
+            <Link href={path} alt={label}>{label}</Link>
+          </li>
         ))}
       </ul>
       <NavMenu />

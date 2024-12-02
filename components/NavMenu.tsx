@@ -26,8 +26,8 @@ const NavMenu = () => {
         transition={{duration: 0.5, type: "spring"}}
         className="absolute -top-2 -right-2 w-64 min-h-64 rounded-md bg-[#65B5AC] p-8 z-10 flex flex-col origin-top-right">
             <ul className="flex flex-col gap-2 flex-1  text-2xl font-bold">
-                {navItems.map(({label}) => (
-                    <Link href="/" key={label}>
+                {navItems.map(({label, path}) => (
+                    <Link href={path} key={label}>
                         <li className="text-white hover:text-[#0077BC] text-2xl font-bold hover:scale-105 transition-transform duration-200">{label}</li>
                     </Link>
                 ))}
