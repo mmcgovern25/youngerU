@@ -24,7 +24,7 @@ function Image({ id }: { id: number }) {
   );
 }
 
-function Item({ index }) {
+function Item({ index, stepText }) {
   const ref = useRef(null);
   
   const { scrollYProgress } = useScroll({
@@ -36,10 +36,10 @@ function Item({ index }) {
   const translateX = index % 2 === 0 ? '-100px' : '400px';
   const translateY = '-100px'; // Adjust this value as needed
   const barPosition = index % 2 === 0 ? 'right' : 'left';
-  const barTranslateX = barPosition === 'right' ? '100%' : '-150%'; // Adjusted for positioning next to the circle
+  const barTranslateX = barPosition === 'right' ? '100%' : '-100%'; // Adjusted for positioning next to the circle
   
   return (
-    <section>
+    <section style={{ margin: 0, padding: 0 }}>
       <div ref={ref}>
         <figure className="progress" style={{ transform: `translateX(${translateX}) translateY(${translateY})` }}>
           <svg id="progress" width="85" height="85" viewBox="0 0 100 100">
@@ -59,16 +59,16 @@ function Item({ index }) {
           style={{
             position: 'absolute',
             top: '50%', // Center vertically
-            width: '150px', // Set the width of the bar
-            height: '30px', // Set the height of the bar
+            width: '200px', // Set the width of the bar
+            height: '60px', // Set the height of the bar
             backgroundColor: '#3498db', // Change to your desired color
             borderRadius: '5px',
             transform: `translateX(${barTranslateX})`, // Adjusted for positioning
-            opacity: scrollYProgress,
+            opacity: useTransform(scrollYProgress, [0, 0.6], [0, 1]), // Adjusted for earlier opacity fill
             transition: 'transform 0.5s ease, opacity 0.5s ease'
           }}
         >
-          Step {index + 1}
+          {stepText}
         </motion.div>
       </div>
       
@@ -88,7 +88,7 @@ export default function () {
   return (
     <>
       {[...Array(5)].map((_, index) => (
-        <Item key={index} index={index} />
+        <Item key={index} index={index} stepText={`Step #${index + 1}`} />
       ))}
       <motion.div className="progressline" style={{ scaleX }} />
     </>
