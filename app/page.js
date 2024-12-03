@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import DownIcon from '../components/downicon';
-import HowItWorks from '../components/howitworks'
+import HowItWorks from '../components/howitworks.tsx'
 
 
 

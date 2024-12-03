@@ -1,0 +1,54 @@
+.progress {
+    position: sticky;
+    top: 0;
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .progress svg {
+    transform: translateX(-100px) rotate(-90deg);
+  }
+  
+  circle {
+    stroke-dashoffset: 0;
+    stroke-width: 8%;
+    fill: none;
+  }
+  
+  .bg {
+    stroke: #0077BC;
+    opacity: 0.2;
+  }
+  
+  .progress .indicator {
+    stroke: #65B5AC;
+  }
+
+  section {
+    height:75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: center;
+  }
+  
+  section div {
+    width: 200px;
+    height: 300px;
+    border: 2px dotted #65B5AC;
+    position: relative;
+  }
+  
+  
+  .progressline {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height:10px;
+    background: #65B5AC;
+    bottom: 160px;
+    border-radius: 10px; 
+  }
+ 
