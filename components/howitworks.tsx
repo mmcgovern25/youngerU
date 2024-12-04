@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRef } from "react";
 import { motion, useScroll, useSpring,
   useTransform,
@@ -24,7 +24,7 @@ function Image({ id }: { id: number }) {
   );
 }
 
-function Item({ index, stepText }) {
+function Item({ index, text, style }: { index: number; text: { title: string; description: string; titleClass?: string; descriptionClass?: string }; style?: React.CSSProperties }) {
   const ref = useRef(null);
   
   const { scrollYProgress } = useScroll({
@@ -37,9 +37,10 @@ function Item({ index, stepText }) {
   const translateY = '-100px'; // Adjust this value as needed
   const barPosition = index % 2 === 0 ? 'right' : 'left';
   const barTranslateX = barPosition === 'right' ? '100%' : '-100%'; // Adjusted for positioning next to the circle
+  const barColor = index % 2 === 0 ? '#0077BC' : '#65B5AC'; // Alternate colors based on index
   
   return (
-    <section style={{ margin: 0, padding: 0 }}>
+    <section className="custom-section" style={{ margin: 0, padding: 0 }}>
       <div ref={ref}>
         <figure className="progress" style={{ transform: `translateX(${translateX}) translateY(${translateY})` }}>
           <svg id="progress" width="85" height="85" viewBox="0 0 100 100">
@@ -59,16 +60,17 @@ function Item({ index, stepText }) {
           style={{
             position: 'absolute',
             top: '50%', // Center vertically
-            width: '200px', // Set the width of the bar
-            height: '60px', // Set the height of the bar
-            backgroundColor: '#3498db', // Change to your desired color
+            width: '300px', // Set the width of the bar
+            height: '140px', // Set the height of the bar
+            backgroundColor: barColor, // Use the calculated color
             borderRadius: '5px',
             transform: `translateX(${barTranslateX})`, // Adjusted for positioning
             opacity: useTransform(scrollYProgress, [0, 0.6], [0, 1]), // Adjusted for earlier opacity fill
             transition: 'transform 0.5s ease, opacity 0.5s ease'
           }}
         >
-          {stepText}
+          <h3 className={`text-xl ${text.titleClass}`}><strong>{text.title}</strong></h3>
+          <p className={text.descriptionClass}>{text.description}</p>
         </motion.div>
       </div>
       
@@ -86,11 +88,23 @@ export default function () {
   });
 
   return (
-    <>
-      {[...Array(5)].map((_, index) => (
-        <Item key={index} index={index} stepText={`Step #${index + 1}`} />
-      ))}
+    <div>
+      <div style={{ marginBottom: '15vh' }}>
+        <Item index={0} text={{ title: "1. Get Informed.", description: "Be sure to get the latest insights from not our podcast, but also from the resources we often recommend." }} />
+      </div>
+      <div style={{ marginBottom: '15vh' }}>
+        <Item index={1} text={{ title: "2. Fill out our in-depth questionaire.", description: "Everybody is different, in order for me to best to help you, everything has to be entirely personilized towards you." }} />
+      </div>
+      <div style={{ marginBottom: '15vh' }}>
+        <Item index={2} text={{ title: "3. Check your email for a follow up.", description: "After review, I will get back in touch with you as soon as possible with a few different options for a gameplan." }} />
+      </div>
+      <div style={{ marginBottom: '15vh' }}>
+        <Item index={3} text={{ title: "4. Choose your plan.", description: "Pick the plan that you think best suites your lifestyle and makes the most sense to you." }} />
+      </div>
+      <div style={{ marginBottom: '15vh' }}>
+        <Item index={4} text={{ title: "5. Let's work!", description: "No description needed. Now its time to make real change." }} />
+      </div>
       <motion.div className="progressline" style={{ scaleX }} />
-    </>
+    </div>
   );
 }
