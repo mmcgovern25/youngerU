@@ -6,6 +6,7 @@ import HowItWorks from '../components/howitworks'
 
 
 
+
 export default function Home() {
   return (
     <main>
@@ -51,6 +52,8 @@ export default function Home() {
           <DownIcon className='mt-2'/>
         </Link>
       </div>
+
+    
       
 
 

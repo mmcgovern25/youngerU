@@ -1,0 +1,37 @@
+.responsive-iframe {
+    border-radius: 12px;
+    width: 500px;
+    height: 150px; /* Default height for small screens */
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px
+}
+
+@media (min-width: 640px) { /* sm */
+    .responsive-iframe {
+        height: 250px;
+        width: 600px; /* Height for small to medium screens */
+       
+    }
+}
+
+@media (min-width: 768px) { /* md */
+    .responsive-iframe {
+        height: 250px;
+        width: 700px;
+    }
+}
+
+@media (min-width: 1024px) { /* lg */
+    .responsive-iframe {
+        height: 250px; /* Adjust height for large screens */
+        width: 1000px;  /* Adjust width for large screens */
+    }
+}
+
+@media (min-width: 1280px) { /* xl */
+    .responsive-iframe {
+        height: 250px; /* Adjust height for extra-large screens */
+        width: 1200px;  /* Adjust width for extra-large screens */
+    }
+}

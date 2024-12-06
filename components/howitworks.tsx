@@ -53,6 +53,16 @@ function Item({ index, text, style }: { index: number; text: { title: string; de
               className="indicator"
               style={{ pathLength: scrollYProgress }}
             />
+            <motion.text
+              x="50"
+              y="58"
+              textAnchor="middle"
+              fill="#65B5AC" // Change color as needed
+              fontSize="20"
+              transform="rotate(90 50 50)" // Rotate text 90 degrees
+            >
+              {index + 1}
+            </motion.text>
           </svg>
         </figure>
         <motion.div
@@ -73,6 +83,8 @@ function Item({ index, text, style }: { index: number; text: { title: string; de
           <p className={text.descriptionClass}>{text.description}</p>
         </motion.div>
       </div>
+
+      
       
     </section>
   );
@@ -105,6 +117,16 @@ export default function () {
         <Item index={4} text={{ title: "5. Let's work!", description: "No description needed. Now its time to make real change." }} />
       </div>
       <motion.div className="progressline" style={{ scaleX }} />
+
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+        <motion.div
+          className="text-white w-[250px] h-[50px] sm:w-[350px] md:w-[450px] lg:w-[550px] sm:h-[60px] rounded-[50px] bg-[#0077BC] cursor-pointer flex items-center justify-center text-center text-sm sm:text-base mb-24"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+          Lets Get Started!
+        </motion.div>
+      </div>
     </div>
   );
 }
