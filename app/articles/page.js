@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PostCard, Categories, PostWidget } from './articlecomponents/';
+import '../articles/articlestyles/globals.scss';
 
 const posts = [
     { title: 'Plant-Based Nutrition', except: 'Learn plant-based nutrition'},
