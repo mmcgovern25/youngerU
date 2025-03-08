@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Younger U",
+  title: "youngerU",
   description: "Slowing down father time.",
 };
 

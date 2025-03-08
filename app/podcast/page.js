@@ -65,7 +65,7 @@ export default function Podcast() {
                     <p>Advice.</p>
                     <p>Education.</p>
                     <p>Nutrition.</p>
-                    <p>YoungerU Podcasts.</p>
+                    <p>Podcasts.</p>
                 </div>
             </div>
 
