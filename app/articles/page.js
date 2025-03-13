@@ -1,33 +1,30 @@
 import Link from "next/link";
 import { PostCard, Categories, PostWidget } from './articlecomponents/';
 import '../articles/articlestyles/globals.scss';
+import { getPosts } from "@/services";
 
-const posts = [
-    { title: 'Plant-Based Nutrition', except: 'Learn plant-based nutrition'},
-    { title: 'Mental health and nutrition', except: 'Mental health and plant-based nutrition'},
-]
+export default async function Articles() {
+    const posts = await getPosts(); // Fetch posts directly in the component
 
-export default function Articles() {
     return (
-    <div className="container mx-auto px-10 mb-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-8 col-span-1">
-                {posts.map((post, index) => (
-                    <PostCard post={post} key={post.title} />
-                ))}
-            </div>
-           
-
-            <div className="lg:col-span-4 col-span-1">
-                <div className="lg:sticky relative top-8">
-                    <PostWidget />
-                    <Categories />
+        <div className="container mx-auto px-10 mb-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div className="lg:col-span-8 col-span-1">
+                    {posts.length > 0 ? (
+                        posts.map((post) => (
+                            <PostCard post={post.node} key={post.node.title} /> // Accessing post.node
+                        ))
+                    ) : (
+                        <p>No posts available.</p> // Handle case when there are no posts
+                    )}
+                </div>
+                <div className="lg:col-span-4 col-span-1">
+                    <div className="lg:sticky relative top-8">
+                        <PostWidget />
+                        <Categories />
+                    </div>
                 </div>
             </div>
         </div>
-
-        
-        
-    </div>
-    )
+    );
 }
