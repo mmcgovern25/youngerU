@@ -45,7 +45,7 @@ export const getPosts = async () => {
 
 export const getRecentPosts = async () => {
     const query = gql`
-      query GetPostDetails() {
+      query GetPostDetails {
         posts(
           orderBy: createdAt_ASC
           last: 3
@@ -89,6 +89,25 @@ export const getSimilarPosts = async (categories, slug) => {
         return result.posts; // Ensure this matches your GraphQL response structure
     } catch (error) {
         console.error("Error fetching similar posts:", error);
+        return []; // Return an empty array or handle the error as needed
+    }
+};
+
+export const getCategories = async () => {
+    const query = gql`
+      query GetCategories {
+          categories {
+            name
+            slug
+          }
+      }
+    `;
+  
+    try {
+        const result = await request(GRAPHQL_ENDPOINT, query);
+        return result.categories; // Ensure this matches your GraphQL response structure
+    } catch (error) {
+        console.error("Error fetching categories:", error);
         return []; // Return an empty array or handle the error as needed
     }
 };
