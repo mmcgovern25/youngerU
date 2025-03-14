@@ -11,8 +11,8 @@ export default async function Articles({ posts }) {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div className="lg:col-span-8 col-span-1">
                     {fetchedPosts.length > 0 ? (
-                        fetchedPosts.map((post) => (
-                            <PostCard post={post.node} key={post.title} /> // Accessing post.node
+                        fetchedPosts.map((post, index) => (
+                            <PostCard post={post.node} key={index} /> // Accessing post.node
                         ))
                     ) : (
                         <p>No posts available.</p> // Handle case when there are no posts
